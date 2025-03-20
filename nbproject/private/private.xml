@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/TubesPBO.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/model/User.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/D_ManajemenTugas_KETUA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/J_TugasSaya_ANGGOTA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/E_EditTugas_KETUA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/A_Masuk.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/C_Menu_KETUA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/dao/GroupDAO.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/dao/DatabaseConnector.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/model/Group.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/dao/TaskAssignmentDAO.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/model/Project.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/F_UbahTugas_KETUA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/dao/UserDAO.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/B_Daftar.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/G_ProgresTugas_KETUA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/H_ManajemenAnggotaTim_KETUA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/model/Task.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/tubes/pbo/I_Menu_ANGGOTA.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/model/TaskAssignment.java</file>
+            <file>file:/C:/Users/STEVEN/Documents/Current%20Working%20Folder/Tubes%20PBO/src/dao/TaskDAO.java</file>
+        </group>
+    </open-files>
+</project-private>
