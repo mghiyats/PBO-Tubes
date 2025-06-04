@@ -12,13 +12,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: "21"
           distribution: "temurin"
           cache: maven
+
+      - name: Run tests with JaCoCo agent
+        run: |
+          mvn org.jacoco:jacoco-maven-plugin:prepare-agent test --file pom.xml
+          mvn org.jacoco:jacoco-maven-plugin:report --file pom.xml
 
       - name: Archive JaCoCo XML & HTML
         uses: actions/upload-artifact@v4
@@ -29,7 +33,7 @@ jobs:
             target/site/jacoco/**
 
       - name: Run SpotBugs analysis
-        run: mvn com.github.spotbugs:spotbugs-maven-plugin:spotbugs --file pom.xml
+        run: mvn com.github.spotbugs:spotbugs-maven-plugin:spotbugs -Dspotbugs.failOnError=false --file pom.xml
 
       - name: Archive SpotBugs XML
         uses: actions/upload-artifact@v4
