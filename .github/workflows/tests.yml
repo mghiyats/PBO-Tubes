@@ -47,6 +47,7 @@ jobs:
 
       - name: Install MySQL client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
+
         
       - name: Allow root remote access with empty password
         run: |
@@ -55,11 +56,10 @@ jobs:
 
       - name: Create database and import schema if not exists
         run: |
-          if ! mysql -h127.0.0.1 -uroot -e "USE db_j348"; then
-            mysql -h127.0.0.1 -uroot -e "CREATE DATABASE db_j348";
+          if ! mysql -h127.0.0.1 -uroot -proot -e "USE db_j348"; then
+            mysql -h127.0.0.1 -uroot -proot -e "CREATE DATABASE db_j348";
           fi
-          mysql -h127.0.0.1 -uroot db_j348 < src/main/resources/db_j348.sql
-
+          mysql -h127.0.0.1 -uroot -proot db_j348 < src/main/resources/db_j348.sql
 
       - name: Run tests with JaCoCo agent
         run: |
