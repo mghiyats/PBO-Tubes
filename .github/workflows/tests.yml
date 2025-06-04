@@ -15,7 +15,6 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-          MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: db_j348
         ports:
           - 3306:3306
@@ -48,6 +47,12 @@ jobs:
 
       - name: Install MySQL client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
+
+        
+      - name: Allow root remote access with empty password
+        run: |
+          mysql -h127.0.0.1 -uroot -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '';"
+          mysql -h127.0.0.1 -uroot -e "FLUSH PRIVILEGES;"
 
       - name: Create database and import schema if not exists
         run: |
