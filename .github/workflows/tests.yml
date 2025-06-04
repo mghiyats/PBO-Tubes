@@ -6,6 +6,8 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
+# .github/workflows/tests.yml
+
 name: Test Coverage and Analysis
 
 on:
@@ -15,7 +17,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
