@@ -43,7 +43,7 @@ jobs:
             target/site/jacoco/**
 
       - name: Run SpotBugs analysis
-        run: mvn com.github.spotbugs:spotbugs-maven-plugin:spotbugs -Dspotbugs.failOnError=false --file pom.xml
+        run: mvn com.github.spotbugs:spotbugs-maven-plugin:spotbugs --file pom.xml
 
       - name: Archive SpotBugs XML
         uses: actions/upload-artifact@v4
