@@ -14,7 +14,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
           MYSQL_DATABASE: db_j348
         ports:
           - 3306:3306
@@ -48,12 +48,16 @@ jobs:
       - name: Install MySQL client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
 
-      - name: Create database and import schema if not exists
+        
+      - name: Allow root remote access with empty password
         run: |
-          if ! mysql -h127.0.0.1 -uroot -proot -e "USE db_j348"; then
-            mysql -h127.0.0.1 -uroot -proot -e "CREATE DATABASE db_j348";
-          fi
-          mysql -h127.0.0.1 -uroot -proot db_j348 < src/main/resources/db_j348.sql
+          mysql -h127.0.0.1 -uroot -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '';"
+          mysql -h127.0.0.1 -uroot -e "FLUSH PRIVILEGES;"
+
+      - name: Allow root remote access with empty password
+        run: |
+          mysql -h127.0.0.1 -uroot -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '';"
+          mysql -h127.0.0.1 -uroot -e "FLUSH PRIVILEGES;"
 
       - name: Run tests with JaCoCo agent
         run: |
