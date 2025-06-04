@@ -10,14 +10,50 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: db_j348
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: "21"
           distribution: "temurin"
           cache: maven
+
+      - name: Wait for MySQL to be ready
+        run: |
+          for i in {1..30}; do
+            if mysqladmin ping -h127.0.0.1 -uroot -proot --silent; then
+              echo "MySQL is up!"
+              break
+            fi
+            echo "Waiting for MySQL..."
+            sleep 2
+          done
+
+      - name: Install MySQL client
+        run: sudo apt-get update && sudo apt-get install -y mysql-client
+
+      - name: Create database and import schema if not exists
+        run: |
+          if ! mysql -h127.0.0.1 -uroot -proot -e "USE db_j348"; then
+            mysql -h127.0.0.1 -uroot -proot -e "CREATE DATABASE db_j348";
+          fi
+          mysql -h127.0.0.1 -uroot -proot db_j348 < src/main/resources/db_j348.sql
 
       - name: Run tests with JaCoCo agent
         run: |
