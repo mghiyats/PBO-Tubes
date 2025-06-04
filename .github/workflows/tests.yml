@@ -25,6 +25,14 @@ jobs:
           mvn org.jacoco:jacoco-maven-plugin:prepare-agent test --file pom.xml
           mvn org.jacoco:jacoco-maven-plugin:report --file pom.xml
 
+      - name: Run tests with JaCoCo agent
+        run: |
+          mvn org.jacoco:jacoco-maven-plugin:prepare-agent test --file pom.xml
+          mvn org.jacoco:jacoco-maven-plugin:report --file pom.xml
+
+      - name: Install xmllint (libxml2-utils)
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
       - name: Enforce minimum line coverage (80%)
         run: |
           XML=target/site/jacoco/jacoco.xml
@@ -52,7 +60,41 @@ jobs:
           else
             echo "✅ Coverage meets the requirement."
           fi
+          - name: Run tests with JaCoCo agent
+            run: |
+              mvn org.jacoco:jacoco-maven-plugin:prepare-agent test --file pom.xml
+              mvn org.jacoco:jacoco-maven-plugin:report --file pom.xml
 
+          - name: Install xmllint (libxml2-utils)
+            run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
+          - name: Enforce minimum line coverage (80%)
+            run: |
+              XML=target/site/jacoco/jacoco.xml
+              MIN_COVERAGE=80
+
+              echo "Checking line coverage from $XML..."
+
+              LINE_COVERED=$(xmllint --xpath "string(//report/counter[@type='LINE']/@covered)" "$XML")
+              LINE_MISSED=$(xmllint --xpath "string(//report/counter[@type='LINE']/@missed)" "$XML")
+
+              TOTAL=$((LINE_COVERED + LINE_MISSED))
+              if [ "$TOTAL" -eq 0 ]; then
+                echo "No lines found in coverage report. Assuming 100% coverage."
+                COVERAGE=100
+              else
+                COVERAGE=$(awk "BEGIN { printf \"%.2f\", 100 * $LINE_COVERED / $TOTAL }")
+              fi
+
+              echo "Line coverage: $COVERAGE% (required: ${MIN_COVERAGE}%)"
+
+              RESULT=$(awk "BEGIN { print ($COVERAGE < $MIN_COVERAGE) }")
+              if [ "$RESULT" -eq 1 ]; then
+                echo "❌ Coverage below required threshold!"
+                exit 1
+              else
+                echo "✅ Coverage meets the requirement."
+              fi
       - name: Archive JaCoCo XML & HTML
         uses: actions/upload-artifact@v4
         with:
