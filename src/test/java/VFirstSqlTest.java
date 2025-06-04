@@ -12,7 +12,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import dao.DatabaseConnector;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class VFirstSqlTest {
+public class FirstSqlTest {
 
     @Test
     @Order(1)
