@@ -14,8 +14,10 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.organization>irvandzawinnuha</sonar.organization>
+        <sonar.projectKey>irvandzawinnuha_PBO-Tubes</sonar.projectKey>
     </properties>
-
     <repositories>
         <repository>
             <id>central</id>
