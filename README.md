@@ -2,3 +2,4 @@
 
 [![Build Status](https://github.com/mghiyats/PBO-Tubes/actions/workflows/maven.yml/badge.svg)](https://github.com/mghiyats/PBO-Tubes/actions/workflows/maven.yml)
 [![Test & Analysis](https://github.com/mghiyats/PBO-Tubes/actions/workflows/tests.yml/badge.svg)](https://github.com/mghiyats/PBO-Tubes/actions/workflows/tests.yml)
+[![Inspection](https://github.com/mghiyats/PBO-Tubes/actions/workflows/inspecton.yml/badge.svg)](https://github.com/mghiyats/PBO-Tubes/actions/workflows/inspection.yml)
