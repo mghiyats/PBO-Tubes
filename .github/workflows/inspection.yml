@@ -29,8 +29,19 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mvn sonar:sonar \
-          -Dsonar.projectKey=irvandzawinnuha_PBO-Tubes \
-          -Dsonar.organization=irvandzawinnuha\
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            mvn sonar:sonar \
+              -Dsonar.projectKey=irvandzawinnuha_PBO-Tubes \
+              -Dsonar.organization=irvandzawinnuha \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+              -Dsonar.pullrequest.key=${{ github.event.pull_request.number }} \
+              -Dsonar.pullrequest.branch=${{ github.head_ref }} \
+              -Dsonar.pullrequest.base=${{ github.base_ref }}
+          else
+            mvn sonar:sonar \
+              -Dsonar.projectKey=irvandzawinnuha_PBO-Tubes \
+              -Dsonar.organization=irvandzawinnuha \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          fi
