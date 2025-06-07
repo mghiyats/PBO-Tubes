@@ -38,10 +38,12 @@ jobs:
               -Dsonar.pullrequest.key=${{ github.event.pull_request.number }} \
               -Dsonar.pullrequest.branch=${{ github.head_ref }} \
               -Dsonar.pullrequest.base=${{ github.base_ref }}
+              -Dsonar.java.binaries=target/classes
           else
             mvn sonar:sonar \
               -Dsonar.projectKey=irvandzawinnuha_PBO-Tubes \
               -Dsonar.organization=irvandzawinnuha \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+              -Dsonar.java.binaries=target/classes
           fi
