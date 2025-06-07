@@ -3,8 +3,8 @@ name: SonarQube Inspection
 on:
   push:
     branches: [ testing ]
-  pull_request:
-    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   sonarqube:
