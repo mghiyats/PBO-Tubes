@@ -1,0 +1,60 @@
+name: Deploy Desktop App
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-jar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+          cache: maven
+
+      - name: Build executable JAR
+        run: mvn clean package -DskipTests
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: myapp-jar
+          path: target/*.jar
+
+  build-exe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+          cache: maven
+
+      - name: Build executable JAR (again)
+        run: mvn clean package -DskipTests
+
+      - name: Use jpackage to create .exe installer
+        run: |
+          jpackage ^
+            --input target ^
+            --name MyApp ^
+            --main-jar your-app.jar ^
+            --type exe ^
+            --dest dist ^
+            --win-dir-chooser ^
+            --win-shortcut ^
+            --win-menu ^
+            --win-menu-group "MyApp Group"
+        shell: cmd
+
+      - name: Upload EXE installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: myapp-installer
+          path: dist/*.exe
