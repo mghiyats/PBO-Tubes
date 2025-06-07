@@ -54,7 +54,7 @@ jobs:
           jpackage ^
             --input target ^
             --name MyApp ^
-            --main-jar your-app.jar ^
+            --main-jar pbo-tubes-1.0-SNAPSHOT.jar ^
             --type exe ^
             --dest dist ^
             --win-dir-chooser ^
