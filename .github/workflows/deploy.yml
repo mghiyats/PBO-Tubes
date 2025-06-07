@@ -92,5 +92,5 @@ jobs:
           tag_name: v${{ needs.build.outputs.version }}
           name: Release v${{ needs.build.outputs.version }}
           files: |
-            dist/*.jar
-            dist/*.exe
+            artifacts/*.jar
+            artifacts/*.exe
