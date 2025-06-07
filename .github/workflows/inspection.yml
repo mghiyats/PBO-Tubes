@@ -4,9 +4,7 @@ on:
   push:
     branches: [ testing ]
   pull_request:
-    branches:
-      - testing
-      - main
+    branches: [ main ]
 
 jobs:
   sonarqube:
