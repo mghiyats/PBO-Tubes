@@ -30,7 +30,7 @@ jobs:
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: myapp-jar
+          name: tubes-pbo-jar
           path: target/*.jar
 
   package-exe:
@@ -66,7 +66,7 @@ jobs:
       - name: Upload EXE installer
         uses: actions/upload-artifact@v4
         with:
-          name: myapp-installer
+          name: tubes-pbo-installer
           path: dist/*.exe
 
   release:
@@ -78,12 +78,12 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: myapp-jar
+          name: tubes-pbo-jar
           path: artifacts/
 
       - uses: actions/download-artifact@v4
         with:
-          name: myapp-installer
+          name: tubes-pbo-installer
           path: artifacts/
 
       - name: Create GitHub Release
