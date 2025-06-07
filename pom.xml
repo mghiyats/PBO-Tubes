@@ -17,6 +17,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>irvandzawinnuha</sonar.organization>
         <sonar.projectKey>irvandzawinnuha_PBO-Tubes</sonar.projectKey>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
     </properties>
     <repositories>
         <repository>
