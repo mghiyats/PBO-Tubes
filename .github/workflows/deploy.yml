@@ -53,14 +53,14 @@ jobs:
         run: |
           jpackage ^
             --input target ^
-            --name MyApp ^
+            --name Tubes-PBO ^
             --main-jar pbo-tubes-1.0-SNAPSHOT.jar ^
             --type exe ^
             --dest dist ^
             --win-dir-chooser ^
             --win-shortcut ^
             --win-menu ^
-            --win-menu-group "MyApp Group"
+            --win-menu-group "Tubes-PBO Group"
         shell: cmd
 
       - name: Upload EXE installer
