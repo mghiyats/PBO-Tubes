@@ -3,8 +3,8 @@ name: SonarQube Inspection
 on:
   push:
     branches: [ testing ]
-  pull_request:
-    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   sonarqube:
@@ -24,6 +24,7 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+
       - name: SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
