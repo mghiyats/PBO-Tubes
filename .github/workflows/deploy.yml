@@ -79,12 +79,12 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: myapp-jar
-          path: dist
+          path: artifacts/
 
       - uses: actions/download-artifact@v4
         with:
           name: myapp-installer
-          path: dist
+          path: artifacts/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
