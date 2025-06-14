@@ -51,7 +51,7 @@ public class B_Daftar extends javax.swing.JFrame {
         jLabel1.setText("Daftar");
 
         txtNama.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-        txtNama.setForeground(new java.awt.Color(200, 200, 200));
+        txtNama.setForeground(new java.awt.Color(0, 0, 0));
         txtNama.setText("Nama Lengkap");
         txtNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class B_Daftar extends javax.swing.JFrame {
         });
 
         txtEmail.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(200, 200, 200));
+        txtEmail.setForeground(new java.awt.Color(0, 0, 0));
         txtEmail.setText("Email");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class B_Daftar extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setForeground(new java.awt.Color(200, 200, 200));
+        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
         txtPassword.setText("jPasswordField1");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +102,7 @@ public class B_Daftar extends javax.swing.JFrame {
         });
 
         txtUsername.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(200, 200, 200));
+        txtUsername.setForeground(new java.awt.Color(0, 0, 0));
         txtUsername.setText("Username");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

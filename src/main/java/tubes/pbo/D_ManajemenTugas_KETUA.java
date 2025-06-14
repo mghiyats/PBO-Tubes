@@ -27,7 +27,6 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
     private TaskDAO taskDAO;
     private TaskAssignmentDAO taskAssignmentDAO;
     private DefaultListModel<String> modelTugas, modelJobdesc;
-
     public D_ManajemenTugas_KETUA() {
         taskDAO = new TaskDAO();
         initComponents();
@@ -43,7 +42,16 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
             modelTugas.addElement(task.getTitle());
         }
     }
+                                         
 
+// --- TAMBAHKAN METHOD BARU INI ---
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    // Membuat instance baru dari menu utama ketua
+    new C_Menu_KETUA(null).setVisible(true);
+    // Menutup frame manajemen tugas saat ini
+    this.dispose();
+    }
+// ---------------------------------
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,8 +74,9 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtDeadline = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btnSimpan = new javax.swing.JButton();
         txtJobdesc = new javax.swing.JTextField();
+        btnSimpan1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -124,10 +133,17 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
 
         jLabel7.setText("Jobdesk");
 
-        btnSimpan.setText("Simpan");
-        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan1.setText("Simpan");
+        btnSimpan1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSimpanActionPerformed(evt);
+                btnSimpan1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Batalkan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -136,24 +152,25 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtJudul)
-                            .addComponent(txtDeskripsi)
-                            .addComponent(txtDeadline)
-                            .addComponent(txtJobdesc)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSimpan)))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtJudul, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                    .addComponent(txtDeskripsi)
+                    .addComponent(txtDeadline)
+                    .addComponent(txtJobdesc))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(btnSimpan1)
+                .addGap(14, 14, 14))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,9 +191,11 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(txtJobdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnSimpan)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSimpan1)
+                    .addComponent(jButton1))
+                .addGap(12, 12, 12))
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -227,7 +246,7 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(121, 121, 121))
         );
@@ -275,23 +294,17 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_listTugasValueChanged
 
-    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date deadline = null;
-        try {
-            deadline = dateFormat.parse(txtDeadline.getText());
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(this, "Invalid date format. Please use yyyy-MM-dd.", "Date Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+    private void btnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpan1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSimpan1ActionPerformed
 
-        Task newTask = new Task(null, txtJudul.getText(), txtDeskripsi.getText(), deadline, "Pending");
-        taskDAO.addTask(newTask);
-        JOptionPane.showMessageDialog(this, "Task added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        new C_Menu_KETUA(null).setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSimpanActionPerformed
-
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    new C_Menu_KETUA(null).setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+     
+   
     /**
      * @param args the command line arguments
      */
@@ -357,10 +370,12 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnSimpan1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -381,3 +396,4 @@ public class D_ManajemenTugas_KETUA extends javax.swing.JFrame {
     private javax.swing.JTextField txtJudul;
     // End of variables declaration//GEN-END:variables
 }
+

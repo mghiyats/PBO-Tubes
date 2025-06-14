@@ -21,6 +21,10 @@ public class A_Masuk extends javax.swing.JFrame {
         initComponents();
     }
 
+    A_Masuk(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,8 +54,9 @@ public class A_Masuk extends javax.swing.JFrame {
 
         btnLupa.setText("Lupa Kata Sandi");
 
-        txtUsername.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(200, 200, 200));
+        txtUsername.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(0, 0, 0));
+        txtUsername.setText("Username");
         txtUsername.setToolTipText("Username");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +64,8 @@ public class A_Masuk extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setForeground(new java.awt.Color(200, 200, 200));
+        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
+        txtPassword.setText("Password");
         txtPassword.setToolTipText("Password");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
