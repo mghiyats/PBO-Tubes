@@ -114,7 +114,7 @@
           <Font name="Arial" size="12" style="2"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="c8" green="c8" red="c8" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
       </Properties>
@@ -128,7 +128,7 @@
           <Font name="Arial" size="12" style="2"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="c8" green="c8" red="c8" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
@@ -139,7 +139,7 @@
     <Component class="javax.swing.JPasswordField" name="txtPassword">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="c8" green="c8" red="c8" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
@@ -188,7 +188,7 @@
           <Font name="Arial" size="12" style="2"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="c8" green="c8" red="c8" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Username"/>
       </Properties>

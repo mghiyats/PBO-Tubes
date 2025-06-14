@@ -51,6 +51,7 @@ public class H_ManajemenAnggotaTim_KETUA extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -178,6 +179,13 @@ public class H_ManajemenAnggotaTim_KETUA extends javax.swing.JFrame {
 
         jButton7.setText("Simpan");
 
+        jButton8.setText("Batalkan");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -197,6 +205,8 @@ public class H_ManajemenAnggotaTim_KETUA extends javax.swing.JFrame {
                             .addComponent(jTextField3)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton8)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton7)))
                 .addContainerGap())
         );
@@ -216,7 +226,9 @@ public class H_ManajemenAnggotaTim_KETUA extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jButton7)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
                 .addContainerGap())
         );
 
@@ -257,6 +269,12 @@ public class H_ManajemenAnggotaTim_KETUA extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    new C_Menu_KETUA(null).setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,6 +320,7 @@ public class H_ManajemenAnggotaTim_KETUA extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
